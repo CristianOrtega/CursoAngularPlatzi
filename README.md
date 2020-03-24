@@ -70,7 +70,7 @@ Carlos
 
 * **ngSwitch:** _Es similar a ng-if y como nos podemos imaginar es como el switch de la programación. Es decir que permite que entre varios conjuntos de tags solo esté uno de ellos, borrando los que no cumplen la condición._
 
-Ejemplo: Mostrará la operación correspondiente cuando la variable 'operation' calse en uno de los case.
+Ejemplo: Mostrará la operación correspondiente cuando la variable 'operation' calce en uno de los case.
 ```
 <div [ngSwitch]="operation"> 
     <p *ngSwitchCase="1"> La operación encontrada 1</p>
@@ -83,14 +83,27 @@ Ejemplo: Mostrará la operación correspondiente cuando la variable 'operation' 
 ### Componentes
 
 **¿Qué son los decoradores?**
+
 _Un decorador Angular es una clase especial de declaración que puede acoplarse a una clase, método, propiedad o parámetro. Los decoradores se declaran de la siguiente manera @expression. Gracias al parámetro @ podemos reconocer fácilmente que estamos hablando de un decorador. Generalmente usamos los decoradores para extender servicios de terceros, de esta manera evitamos modificar el código original del módulo y en tiempo de ejecución agregamos el funcionamiento que necesitamos._
 
 **¿Qué son Inputs?**
+
 _Dinámicamente un componente puede enviarle información al componente donde reside el @Input_
 
 **¿Qué son los Output?**
+
 _Sirve para comunicar eventos a otros componentes._
 
+
+### Ciclo de vida de los componentes
+
+_Angular tiene unos eventos que ejecuta en un orden en especifico haciendo el ciclo de vida en un componente._
+
+* **1. Constructor:** Es utilizado para crear nuestro componente y ponerlo en interfaz.
+* **2. NgOnChanges:** Su función es detectar el cambio cada vez que tenemos un Input. Esta es la forma de que cada vez que cambiamos la data podemos detectar los cambios y ver el estado anterior y el nuevo.
+* **3. NgOnInit:** Se ejecuta solo una vez y cuando el componente ya está listo en la interfaz gráfica. (Por lo general se utiliza para hacer el llamado a un REST API u otro componente).
+* **4. NgDoCheck:** Detecta cuando los elementos hijos de ese componente también son creados y puestos en interfaz. Este posee varios subelementos que será detallados más adelante.
+* **5. NgOnDestroy:** Simplemente detecta cuando el elemento es quitado de la interfaz.
 
 
 ## Comandos Angular CLI
