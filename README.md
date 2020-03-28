@@ -102,9 +102,21 @@ _Angular tiene unos eventos que ejecuta en un orden en especifico haciendo el ci
 * **1. Constructor:** Es utilizado para crear nuestro componente y ponerlo en interfaz.
 * **2. NgOnChanges:** Su función es detectar el cambio cada vez que tenemos un Input. Esta es la forma de que cada vez que cambiamos la data podemos detectar los cambios y ver el estado anterior y el nuevo.
 * **3. NgOnInit:** Se ejecuta solo una vez y cuando el componente ya está listo en la interfaz gráfica. (Por lo general se utiliza para hacer el llamado a un REST API u otro componente).
-* **4. NgDoCheck:** Detecta cuando los elementos hijos de ese componente también son creados y puestos en interfaz. Este posee varios subelementos que será detallados más adelante.
+* **4. NgDoCheck:** Detecta cuando los elementos hijos de ese componente también son creados y puestos en interfaz. Este posee varios subelementos que será detallados más adelante. No se puede utilizar NgOnChanges con NgDoCheck a la vez porque tienen un error de colisión, ya que ambos se encargan de detectar cambios. NgOnChanges es la forma nativa de Angular y NgDoCheck puedes hacer la detección de cambios pero a tu manera.
 * **5. NgOnDestroy:** Simplemente detecta cuando el elemento es quitado de la interfaz.
 
+### Pipes y Directivas
+
+_Los **Pipes** funcionando como una "tuberia", donde entran datos de un tipo y los transforma en otro tipo de valor. Se pueden utilizar de forma concatenada o se puede hacer uso de uno solo. Angular ya tiene por defecto sus propios pipes y estos los puedes encontrar en su documentación oficial. Además tu puedes crear tu propio **pipe** en caso de que necesites uno personlizado. Recuerda que esto lo podrías hacer con una función en tu componente pero los pipes son de alto rendimiento por lo que son más utiles._
+
+_Las **Directivas** también son un artefacto importante dentro de Angular que nos sirve para modificar el DOM de un elemento en especifico dinamicamente, hay que tener mucho cuidado en donde y como utilizar, ya que no es buena practica manipular el DOM dinamicamente porque para hace esta el Data Binding de Angular. Sin embargo podría ser muy funcional por ejemplo para hacer un componente del tipo autocompletar donde por cada tecla que va escribiendo en el input vamos modificando el DOM y añadiendo nuevos elementos._
+
+### Modulos y Rutas
+
+_Nos sirven para poder abstraer y poder dividir por dominio nuestra aplicación, esto quiere decir que, los componentes que hacen parte de una página se pueden encapsular en un mismo módulo. Existen módulos especiales estos son **shared** y **core**._
+
+* **Core:** Guarda todos los servicios y componentes que usaremos a lo largo de todos los otros módulos.
+* **Shared:** Podemos almacenar componentes y servicios compartidos.
 
 ## Comandos Angular CLI
 
@@ -114,6 +126,11 @@ _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrol
 * **ng --version:** Indica que es lo que tu proyecto actualmente tiene, versión del angular, node y los paquetes utilizados.
 * **ng serve:** Levanta el aplicativo en tu entorno local (ambiente desarrollo). Este comando tiene muchas opciones que puedes ver en la documentación.
 * **ng build:** Compila el aplicativo para subir a un entorno productivo.
+* **ng lint:** Nos ayuda a detectar errores que tenemos en el código.
+* **ng generate component <name>** o **ng g c <name>:** Crea un nuevo componente en nuestro aplicativo. Generando 4 clases nuevas de TypeScript, HTML, CSS y un archivo para pruebas unitarias. Además generando clases con este comando se agregan automáticamente en nuestro archivo **app.module.ts**.
+* **ng generate pipe <name>** o **ng g p <name>:** Crea un pipe, con esto podrás hacer tu propia transformación de datos.
+* **ng generate directive <name>** o **ng g d <name>:** Crea una directiva, en este archivo podrás modificar como se comporta un elemento y modificarlo en el DOM.
+
 
 
 
