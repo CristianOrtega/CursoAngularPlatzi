@@ -118,13 +118,35 @@ _Nos sirven para poder abstraer y poder dividir por dominio nuestra aplicación,
 * **Core:** Guarda todos los servicios y componentes que usaremos a lo largo de todos los otros módulos.
 * **Shared:** Podemos almacenar componentes y servicios compartidos.
 
+### RouterLink y RouterActive (RouterLinkActive)
+
+_En Angular existe una directiva llamada **routerLink**, con ella se evita que se recargue la página cada vez que navegamos entre las rutas, manteniendo nuestro proyecto como una "Single Page Application". La forma de aplicarlo es cambiar las referencias href en HTML por routerLink._
+
+```
+<div> 
+    <a href="/home">Home</a>
+
+</div>
+```
+
+```
+<div> 
+    <a routerLink="/home">Home</a>
+
+</div>
+```
+
+_También existe **routerActiveLink**, esta directiva le asigna a una clase determinada a la etiqueta HTML si y solo si esta parado en la ruta definida con routerLink, por lo general es "active". Con esto podemos asignar estilos para esta clase en particular._
+
+__
+
 ## Comandos Angular CLI
 
 _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrollador.El siguiente listado muestra los comandos más utilizados comúnente, para ver la definición completa de cada comando puedes ver la documentación en [AngularCLI](https://angular.io/cli) en la sección  **CLI COMMANDS** :_
 
 * **ng new <name>** o **ng n <name>:** Crea un nuevo workspace (Carpeta) con el nombre que le indicas y una aplicación angular.
 * **ng --version:** Indica que es lo que tu proyecto actualmente tiene, versión del angular, node y los paquetes utilizados.
-* **ng serve:** Levanta el aplicativo en tu entorno local (ambiente desarrollo). Este comando tiene muchas opciones que puedes ver en la documentación.
+* **ng serve** o **ng s:** Levanta el aplicativo en tu entorno local (ambiente desarrollo). Este comando tiene muchas opciones que puedes ver en la documentación.
 * **ng build:** Compila el aplicativo para subir a un entorno productivo.
 * **ng lint:** Nos ayuda a detectar errores que tenemos en el código.
 * **ng generate component <name>** o **ng g c <name>:** Crea un nuevo componente en nuestro aplicativo. Generando 4 clases nuevas de TypeScript, HTML, CSS y un archivo para pruebas unitarias. Además generando clases con este comando se agregan automáticamente en nuestro archivo **app.module.ts**.
