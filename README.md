@@ -138,7 +138,31 @@ _En Angular existe una directiva llamada **routerLink**, con ella se evita que s
 
 _También existe **routerActiveLink**, esta directiva le asigna a una clase determinada a la etiqueta HTML si y solo si esta parado en la ruta definida con routerLink, por lo general es "active". Con esto podemos asignar estilos para esta clase en particular._
 
-__
+### Vistas Anidadas
+_A veces existen componentes que se utilizan en varios otros componentes, para esto existe la técnica de vistas anidadas, la cual consiste en crear un componente que albergue los elementos que se repiten y los otros componentes que los utilizan serán hijas del componente creado anteriormente._
+
+### Lazy Loading
+
+_Es una técnica en Angular que ayuda a reducir el peso de tus aplicaciones, o al menos a fragmentarlo, para reducir el tiempo de carga inicial y hacer que tus aplicaciones carguen más rápido. Esta técnica se encargar de fragmentar el archivo generado **main.js** para que cargue más rápido la aplicación, basada en la técnica divide y vencerás, cargando siempre el código Javascript necesario para que la vista funcione de manera adecuada. Con ésto claro, un pre-requisito fundamental es modularizar la aplicación. Un módulo encapsula varios elementos de la aplicación (Components, directivas, servicios, etc)._
+
+_La clave para separar los módulos es:_
+* Crear una carpeta que contendrá el módulo.
+* Crear un módulo que llame a todos los componentes que utilizará.
+* Crear un módulo para sus rutas.
+* Cambiar la importación dentro del routing principal.
+* Eliminar referencias o errores que surjan por el movimiento.
+
+_Existe un pequeño problema en las redes 3G o redes lentas haciendo que el tiempo de carga sea más lento. Este problema se puede resolver haciendo un cambio en nuestra aplicación para que realice una precarga de los otros módulos cuando la vista que estamos consultando termine de cargar sus elementos. Para esto se debe modificar el archivo **app-routing** y cambiar la estrategia de carga, precargando los archivos con **PreloadAllModules**._
+
+### Shared y Core Modules
+
+### Guardianes
+
+_Angular provee seguridad a traves se **"Guardianes"** para poder saber quien puede entrar o no a una ruta en especifico. Existen distintos tipos, entre ellos:_
+
+* **CanActive:** Mira si el usuario puede acceder a una página determinada.
+* **CanActiveChild:** Mira si el usuario puede acceder a las páginas de una determinada ruta.
+* **CanLoad:** Sirve para evitar que la aplicación cargue los módulos perezosamente si el usuario no está autorizado.
 
 ## Comandos Angular CLI
 
@@ -152,6 +176,7 @@ _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrol
 * **ng generate component <name>** o **ng g c <name>:** Crea un nuevo componente en nuestro aplicativo. Generando 4 clases nuevas de TypeScript, HTML, CSS y un archivo para pruebas unitarias. Además generando clases con este comando se agregan automáticamente en nuestro archivo **app.module.ts**.
 * **ng generate pipe <name>** o **ng g p <name>:** Crea un pipe, con esto podrás hacer tu propia transformación de datos.
 * **ng generate directive <name>** o **ng g d <name>:** Crea una directiva, en este archivo podrás modificar como se comporta un elemento y modificarlo en el DOM.
+* **ng generate guardian <name>** o **ng g g <name>:** Crea un guardian, en este archivo podrás implementar distintos tipos de permisos a tu aplicativo.
 
 
 
