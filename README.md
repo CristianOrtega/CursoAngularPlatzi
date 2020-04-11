@@ -164,6 +164,10 @@ _Angular provee seguridad a traves se **"Guardianes"** para poder saber quien pu
 * **CanActiveChild:** Mira si el usuario puede acceder a las páginas de una determinada ruta.
 * **CanLoad:** Sirve para evitar que la aplicación cargue los módulos perezosamente si el usuario no está autorizado.
 
+### Formularios Reactivos
+
+_La diferencia entre los **ReactiveForms** con el  **FormModule** es sustancial y es que en un NgModel normal si tienen un enlace de datos pero no tenemos el control total en el, como la validación de datos. En cambio con los formularios reactivos tenemos Observables para mirar que datos estan mutando, colocar validaciones, agregar pruebas unitarias y toda la logica va a estar dentro de nuestro controlador, por ende hacer pruebas será mucho más sencillo que hacer en el template._
+
 ## Comandos Angular CLI
 
 _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrollador.El siguiente listado muestra los comandos más utilizados comúnente, para ver la definición completa de cada comando puedes ver la documentación en [AngularCLI](https://angular.io/cli) en la sección  **CLI COMMANDS** :_
@@ -177,6 +181,10 @@ _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrol
 * **ng generate pipe <name>** o **ng g p <name>:** Crea un pipe, con esto podrás hacer tu propia transformación de datos.
 * **ng generate directive <name>** o **ng g d <name>:** Crea una directiva, en este archivo podrás modificar como se comporta un elemento y modificarlo en el DOM.
 * **ng generate guardian <name>** o **ng g g <name>:** Crea un guardian, en este archivo podrás implementar distintos tipos de permisos a tu aplicativo.
+
+## Buenas Prácticas
+
+* _Una buena medida que puedes antes de subir algo a un repositorio o al terminar tu desarrollo un nuevo componente o módulo, es ejecutar el comando **ng build --prod**, lo que hará es compilar tu proyecto pero de una forma menos "flexible" indicando si existe o no algún problema en tu proyecto._
 
 
 
