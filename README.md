@@ -168,6 +168,14 @@ _Angular provee seguridad a traves se **"Guardianes"** para poder saber quien pu
 
 _La diferencia entre los **ReactiveForms** con el  **FormModule** es sustancial y es que en un NgModel normal si tienen un enlace de datos pero no tenemos el control total en el, como la validación de datos. En cambio con los formularios reactivos tenemos Observables para mirar que datos estan mutando, colocar validaciones, agregar pruebas unitarias y toda la logica va a estar dentro de nuestro controlador, por ende hacer pruebas será mucho más sencillo que hacer en el template._
 
+### Programación Reactiva
+
+_La **programación reactiva** es la forma de controlar flujos de datos en tus componentes._
+
+### Observable
+
+_Es un patrón de diseño de software, donde básicamente tienes algo que observar (Observable) pueden ser eventos de un formulario, un llamada Htttp, etc, nosotros podemos suscribirnos a esos eventos. Otro componente importante es el que observa (Observer) este es el que se suscribe a los eventos y por medio de callbacks captura los eventos que emite el observable, por último tenemos el subject o sujeto que es el que hace que el observable lance los eventos para ser capturados._
+
 ## Comandos Angular CLI
 
 _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrollador.El siguiente listado muestra los comandos más utilizados comúnente, para ver la definición completa de cada comando puedes ver la documentación en [AngularCLI](https://angular.io/cli) en la sección  **CLI COMMANDS** :_
@@ -185,6 +193,10 @@ _Angular cuenta con una serie de comandos para facilitar el trabajo del desarrol
 ## Buenas Prácticas
 
 * _Una buena medida que puedes antes de subir algo a un repositorio o al terminar tu desarrollo un nuevo componente o módulo, es ejecutar el comando **ng build --prod**, lo que hará es compilar tu proyecto pero de una forma menos "flexible" indicando si existe o no algún problema en tu proyecto._
+
+* _Un formulario por defecto en HTML va a intentar mandar la información que hay en el y recargar la página. Para evitar esto, se debe capturar el evento y le derimos que evite ese compartamiento por defecto con un **preventDefault**._
+
+* _Agregar el signo $ al final de una variable del tipo Observable es una buena práctica._
 
 
 

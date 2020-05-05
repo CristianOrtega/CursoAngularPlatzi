@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './../../models/product.model';
-import { Observable } from 'rxjs';
 import { environment } from './../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-
-  products: Product[];
 
   constructor(private http: HttpClient ) { 
   }
@@ -23,14 +20,14 @@ export class ProductsService {
   }
 
   createProduct(product: Product) {
-    return this.http.post(`${environment.url_api}/products/`, product);
+    return this.http.post(`${environment.url_api}/products`, product);
   }
 
   updateProduct(id: string, changes: Partial<Product>) {
     return this.http.put(`${environment.url_api}/products/${id}`, changes);
   }
 
-  deleteProduct(id: string, ) {
+  deleteProduct(id: string) {
     return this.http.delete(`${environment.url_api}/products/${id}`);
   }
 
